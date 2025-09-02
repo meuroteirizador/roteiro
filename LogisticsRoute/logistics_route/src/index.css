@@ -26,6 +26,7 @@ header {
   box-shadow: 0rem 0rem 1rem #7b8da3;
   border-radius: 5rem;
   margin-top: 1rem;
+  z-index: 2;
 
   & .logo {
     display: flex;
@@ -114,7 +115,6 @@ header {
       margin: 0.8rem 0rem 0.1rem 0rem;
       /* margin-bottom: 0.5rem; */
       text-align: left;
-
       font-size: 1.2rem;
       /* text-transform: capitalize; */
     }
@@ -124,6 +124,7 @@ header {
       gap: 0.2rem;
       margin-left: 0.5rem;
       margin-right: 2rem;
+      z-index: 1;
 
       & div {
         display: flex;
