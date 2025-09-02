@@ -6,3 +6,12 @@
     }
   }
 }
+
+@media (max-width: 430px) {
+  .body {
+    .frame {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+  }
+}
