@@ -2,7 +2,7 @@
   .body {
     .frame {
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: auto;
     }
   }
 }
@@ -10,7 +10,7 @@
 @media (max-width: 1100px) {
   .body {
     .frame {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: auto;
     }
   }
@@ -19,7 +19,7 @@
 @media (max-width: 760px) {
   .body {
     .frame {
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       grid-template-rows: auto;
     }
   }
