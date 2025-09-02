@@ -1,0 +1,11 @@
+#Colors
+#2F143E
+#5F287B
+
+#F47B14
+
+#f8f9fa
+#DBE0E6
+
+#9facbc
+#7B8DA3
