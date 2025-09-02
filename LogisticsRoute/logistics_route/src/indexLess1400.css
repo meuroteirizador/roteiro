@@ -1,4 +1,4 @@
-@media (max-width: 1400px) {
+@media (max-width: 1350px) {
   .body {
     .frame {
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -8,10 +8,66 @@
 }
 
 @media (max-width: 430px) {
+  /*Date*/
+  .date {
+    margin: 8rem 0% 0% 2.5%;
+    padding: 0.2rem 0.5rem;
+    width: 9rem;
+  }
+
+  .dts {
+    & button {
+      width: 4.5rem;
+      margin-left: 3.5%;
+    }
+  }
+
+  /*Body*/
   .body {
-    .frame {
+    padding: 0rem 0rem 0rem 1rem;
+    width: 100%;
+
+    /*BodyLeft*/
+    & .customers {
+      gap: 0.2rem;
+      padding-right: 0rem;
+
+      & h1 {
+        margin: 0.8rem 0rem 0.1rem 0rem;
+        text-align: left;
+        font-size: 1rem;
+      }
+      & #inputs {
+        display: flex;
+        flex-flow: column;
+        gap: 0.2rem;
+        padding-right: 0rem;
+        z-index: 1;
+        position: relative;
+
+        & div {
+          & input {
+            min-width: 100%;
+            font-size: 0.8rem;
+            margin-left: 0rem;
+          }
+          &:hover {
+            & svg {
+              color: #5f287b;
+            }
+          }
+          & svg {
+            display: none;
+          }
+        }
+      }
+    }
+
+    /*BodyRight*/
+    & .frame {
       grid-template-columns: 1fr;
       grid-template-rows: auto;
+      margin-right: 1rem;
     }
   }
 }
