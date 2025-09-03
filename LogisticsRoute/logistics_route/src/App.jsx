@@ -325,6 +325,10 @@ function App() {
         />
         <BodyRight />
       </div>
+      <footer>
+        © 2025 <a href="jorge_william92@hotmail.com">Jorge William</a>. Todos os
+        direitos reservados
+      </footer>
     </CustomersInfo.Provider>
   );
 }

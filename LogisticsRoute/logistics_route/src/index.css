@@ -297,3 +297,15 @@ header {
     }
   }
 }
+
+footer {
+  text-align: center;
+  align-self: center;
+  font-weight: 700;
+  font-size: 0.6rem;
+  margin-top: 2rem;
+  & a {
+    text-decoration: none;
+    color: #2f143e;
+  }
+}
