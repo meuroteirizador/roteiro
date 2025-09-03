@@ -85,7 +85,11 @@ function BodyLeft() {
           );
         })}
       </div>
-
+      <div className="obs">
+        <h1>Atenção!!</h1>
+        <p>1. MB Engenhara: 416, 417 ou 407</p>
+        <p>2. VILLENA: Apenas no Maelcio</p>
+      </div>
       {/* <button className="add" onClick={() => addInput()}>
         +
       </button> */}

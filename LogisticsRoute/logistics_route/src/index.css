@@ -102,6 +102,30 @@ header {
   justify-content: left;
   width: 98%;
 
+  .obs {
+    text-align: center;
+    box-shadow: inset 0rem 0rem 0.5rem #7b8da3;
+    border-radius: 0.5rem;
+    height: 10rem;
+    width: 90%;
+    margin-left: -0.2rem;
+    margin-top: 1rem;
+    & h1 {
+      font-size: 0.8rem;
+      color: #2f143e;
+      /* box-shadow: 0rem 0rem 1rem #f47b14; */
+      /* text-shadow: 0rem 0rem 0.2rem #f47b14; */
+      font-weight: 700;
+      text-transform: uppercase;
+      padding-left: 3rem;
+    }
+    & p {
+      font-size: 0.7rem;
+      text-align: left;
+      padding-left: 0.5rem;
+    }
+  }
+
   /*BodyLeft*/
   & .customers {
     display: flex;
