@@ -36,6 +36,10 @@ function App() {
 
   const [customer, setCustomer] = useState([...customerInfo]);
 
+  function tst() {
+    console.log(driverInfo);
+  }
+
   useEffect(() => {
     setCustomer([...customerInfo]);
   }, [customerInfo]);
@@ -277,9 +281,8 @@ function App() {
       });
     }
 
-    // 3. Atualize o estado com o objeto que contém os dados preenchidos ou os valores padrão
     setDriverInfo(newDriverInfo);
-    console.log("Clientes retornados:", selectData);
+    // console.log("Clientes retornados:", selectData);
   }
 
   return (
@@ -309,7 +312,7 @@ function App() {
             setDate(e.target.value) /*, selectCustomer(), selectDataAll()*/;
           }}
         />
-        <div>
+        <div className="buttons">
           <button id="insertData" onClick={addCustomer}>
             Cadastrar
           </button>

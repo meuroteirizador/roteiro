@@ -39,7 +39,7 @@ function BodyRight() {
     setCustomerInfoRight,
     normalize2,
     driverInfo,
-    setDriverInfo, // ATENÇÃO: Adicione esta linha
+    setDriverInfo,
   } = useContext(CustomersInfo);
 
   return (
@@ -52,10 +52,8 @@ function BodyRight() {
               <select
                 id={`driverOne${ind}`}
                 name="driver"
-                // O valor agora é lido do estado driverInfo
                 value={driverInfo[val] ? driverInfo[val][0] : ""}
                 onChange={(e) => {
-                  // Use setDriverInfo para atualizar o estado
                   setDriverInfo((prevInfo) => {
                     const newInfo = { ...prevInfo };
                     newInfo[val] = newInfo[val] ? [...newInfo[val]] : [];
@@ -78,10 +76,8 @@ function BodyRight() {
               <select
                 name="driver"
                 id={`driverTwo${ind}`}
-                // O valor agora é lido do estado driverInfo
                 value={driverInfo[val] ? driverInfo[val][1] : ""}
                 onChange={(e) => {
-                  // Use setDriverInfo para atualizar o estado
                   setDriverInfo((prevInfo) => {
                     const newInfo = { ...prevInfo };
                     newInfo[val] = newInfo[val] ? [...newInfo[val]] : [];
@@ -106,7 +102,6 @@ function BodyRight() {
                   <input
                     id={`${info[ind3]}${ind}`}
                     type="text"
-                    // O valor agora é lido do estado driverInfo
                     value={driverInfo[val] ? driverInfo[val][ind3 + 3] : ""}
                     onBlur={(e) => {
                       const val = normalize2(e.target.value);
@@ -115,7 +110,6 @@ function BodyRight() {
                       }
                     }}
                     onChange={(e) => {
-                      // Use setDriverInfo para atualizar o estado
                       setDriverInfo((prevInfo) => {
                         const newInfo = { ...prevInfo };
                         newInfo[val] = newInfo[val] ? [...newInfo[val]] : [];
