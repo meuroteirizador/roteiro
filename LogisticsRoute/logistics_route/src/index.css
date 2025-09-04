@@ -20,7 +20,7 @@ header {
   align-items: center;
   height: fit-content;
   position: fixed;
-  padding: 0.5rem 0rem;
+  padding: 0.2rem 0rem;
   width: 100%;
   background-color: #dbe0e6;
   box-shadow: 0rem 0rem 1rem #7b8da3;
@@ -30,27 +30,29 @@ header {
 
   & .logo {
     display: flex;
+    align-items: center;
     & img {
       margin-left: 1rem;
-      height: 4.5rem;
+      height: 3.5rem;
       cursor: pointer;
       border-radius: 50%;
     }
     & h1 {
       padding-left: 1rem;
+      font-size: 1.2rem;
     }
 
-    & .buttons {
-      width: 1rem;
-    }
+    /* & .buttons {
+      width: 0.5rem;
+    } */
   }
 
   & .icons {
     margin-right: 2rem;
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     & svg {
-      width: 2rem;
+      width: 1.5rem;
       color: #2f143e;
       cursor: pointer;
       transition: color 0.5s ease;
@@ -64,7 +66,7 @@ header {
 
 /*Date*/
 .date {
-  margin: 7rem 0% 0% 0.5rem;
+  margin: 6rem 0% 0% 0.5rem;
   align-self: left;
   border-radius: 0.5rem;
   border: 0.1rem solid #7b8da3;
@@ -140,7 +142,7 @@ header {
     min-width: max-content;
 
     & h1 {
-      margin: 0.8rem 0rem 0.1rem 0rem;
+      margin: 0.8rem 0rem 0.1rem -0.3rem;
       /* margin-bottom: 0.5rem; */
       text-align: left;
       font-size: 1.2rem;
@@ -221,8 +223,7 @@ header {
     justify-content: center;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
-    gap: 0.5rem;
-    /* width: max-content; */
+    gap: 0.3rem;
     height: max-content;
     margin-top: -4rem;
     margin-left: 1rem;
@@ -230,8 +231,8 @@ header {
     & #dd {
       border: 0.1rem solid #7b8da3;
       border-radius: 0.2rem;
-      padding: 0.5rem;
-      width: 91%;
+      padding: 0.2rem;
+      width: 97%;
       transition: box-shadow 0.5s ease;
       box-shadow: inset 0rem 0rem 0.6rem #7b8da3;
       &:hover {
@@ -255,7 +256,7 @@ header {
         outline: none;
       }
       & p {
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-weight: 700;
         color: #2f143e;
         padding: 0.2rem 0rem;
@@ -263,7 +264,7 @@ header {
         text-align: center;
       }
       & .inputText {
-        width: 99%;
+        width: 100%;
         display: flex;
         border: 0.1rem solid #7b8da3;
         border-radius: 0.2rem;
@@ -273,7 +274,7 @@ header {
           /* text-transform: capitalize; */
           outline: none;
           text-align: left;
-          font-size: 0.7rem;
+          font-size: 0.85rem;
           border: none;
           background-color: #f8f9fa;
         }
