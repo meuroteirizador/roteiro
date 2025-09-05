@@ -20,29 +20,29 @@ export const vehicle_plate = [
 ];
 
 export const dicVehicleDriver = {
-  "BWF-4A21": "Erisson Francisco",
-  "CPJ-4J43 - sider": "Wesley Prado",
-  "DBO-7693": "Daniel Coelho",
-  "DPG-4H95": "Odair Maceno",
-  "EJW-8F93": "William Miranda",
-  "EMU-8678": "Alisson Fernandes",
-  "EPZ-7746": "Alessandro",
-  "EPZ-8233": "Antonio Freitas",
-  "FHS-7J58 / GGT-1487": "Manoel Cordeiro",
+  "BWF-4A21": "Erisson Edilson",
+  "CPJ-4J43 - sider": "Wesley Pereira",
+  "DBO-7693": "Daniel Mariano",
+  "DPG-4H95": "Odair Macena",
+  "EJW-8F93": "William de Oliveira",
+  "EMU-8678": "Alisson Alves",
+  "EPZ-7746": "Alessandro Luis",
+  "EPZ-8233": "Antonio Gonçalves",
+  "FHS-7J58 / GGT-1487": "Manoel Alfredo",
   "FND-1C42 / GGU-4G56": "Joao Avelino",
-  "FPP-1F96 / GBU-8H45": "Dagvaldo Humberto",
-  "FUY-6A85 / ENI-9A45": "Junior Lima",
-  "FTY-5A27": "Jose Juvencio",
+  "FPP-1F96 / GBU-8H45": "Dagvaldo David",
+  "FUY-6A85 / ENI-9A45": "José Junior",
+  "FTY-5A27": "José Juvencio",
   "LCD-2617": "Ivo Dionisio",
   "GJX-5E41": "Severino Carlos",
   "KCR-4911": "Alexandre - Agregado",
   "BWP-0646": "Douglas - Agregado",
-  "DDS-3C26": "Urinaldo - Agregado",
+  "DDS-3C26": "Iranaudo - Agregado",
 };
 
 export const driverAndVehicle = {
   "BWF-4A21": [
-    "Erisson",
+    "Erisson Edilson",
     "-------------------",
     "BWF-4A21",
     "",
@@ -315,7 +315,7 @@ export const driverAndVehicle = {
 
 export const driverAndVehicle2 = [
   [
-    "Erisson",
+    "Erisson Edilson",
     "-------------------",
     "BWF-4A21",
     "",
@@ -593,7 +593,8 @@ export const drivers = [
   "Antonio Gonçalves",
   "Dagvaldo David",
   "Daniel Mariano",
-  "Erisson",
+  "Edimar Aparecido",
+  "Erisson Edilson",
   "Ivo Dionísio",
   "João Avelino",
   "José Juvencio",
@@ -616,7 +617,8 @@ export const drivers2 = [
   "Antonio Gonçalves",
   "Dagvaldo David",
   "Daniel Mariano",
-  "Erisson",
+  "Edimar Aparecido",
+  "Erisson Edilson",
   "Ivo Dionísio",
   "João Avelino",
   "José Juvencio",
