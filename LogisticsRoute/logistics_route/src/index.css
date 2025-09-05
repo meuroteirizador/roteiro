@@ -20,12 +20,13 @@ header {
   align-items: center;
   height: fit-content;
   position: fixed;
-  padding: 0.2rem 0rem;
+  padding: 0.1rem 0rem;
   width: 100%;
   background-color: #dbe0e6;
   box-shadow: 0rem 0rem 1rem #7b8da3;
-  border-radius: 5rem;
-  margin-top: 0.1rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  margin-top: 0rem;
   z-index: 2;
 
   & .logo {
@@ -66,7 +67,7 @@ header {
 
 /*Date*/
 .date {
-  margin: 6rem 0% 0% 0.5rem;
+  margin: 5.5rem 0% 0% 0.5rem;
   align-self: left;
   border-radius: 0.5rem;
   border: 0.1rem solid #7b8da3;
@@ -112,7 +113,7 @@ header {
   .obs {
     text-align: center;
     box-shadow: inset 0rem 0rem 0.5rem #7b8da3;
-    border-radius: 0.5rem;
+    border-radius: 0.2rem;
     height: 10rem;
     width: 100%;
     margin-left: -0.3rem;
@@ -236,7 +237,7 @@ header {
       transition: box-shadow 0.5s ease;
       box-shadow: inset 0rem 0rem 0.6rem #7b8da3;
       &:hover {
-        box-shadow: 0rem 0rem 1rem #7b8da3, inset 0rem 0rem 0.2rem #7b8da3;
+        box-shadow: 0rem 0rem 0.5rem #7b8da3, inset 0rem 0rem 0.2rem #7b8da3;
       }
 
       & select {
@@ -274,7 +275,7 @@ header {
           /* text-transform: capitalize; */
           outline: none;
           text-align: left;
-          font-size: 0.85rem;
+          font-size: 0.9rem;
           border: none;
           background-color: #f8f9fa;
         }
@@ -314,3 +315,8 @@ footer {
     color: #2f143e;
   }
 }
+
+/* @media print {
+  #frame {
+  }
+} */

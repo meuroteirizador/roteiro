@@ -43,7 +43,7 @@ function BodyRight() {
   } = useContext(CustomersInfo);
 
   return (
-    <section className="frame">
+    <section className="frame" id="frame">
       {vehicle_plate.map((val, ind) => {
         return (
           <div className={val} id="dd" key={`vehicle${ind}`}>
