@@ -8,7 +8,7 @@ import {
   info,
   mark,
 } from "../dt";
-import { CustomersInfo } from "../App";
+import { CustomersInfo } from "../Body";
 
 function BodyRight() {
   const [color, setColor] = useState("black");

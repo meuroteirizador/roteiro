@@ -1,0 +1,160 @@
+1. Pegando a soma e a média de coletas por dia da semana
+FOI CRIADA UMA VIEW COM NOME: customer_stats 
+(ela devolve colunas: ano, dia_semana,soma_coletas, media_coletas)
+  create or replace view customer_stats as
+  select
+    extract(year from cn.date) as ano,
+    case extract(dow from cn.date)
+      when 0 then 'Domingo'
+      when 1 then 'Segunda-feira'
+      when 2 then 'Terça-feira'
+      when 3 then 'Quarta-feira'
+      when 4 then 'Quinta-feira'
+      when 5 then 'Sexta-feira'
+      when 6 then 'Sábado'
+    end as dia_semana,
+    sum(
+        case when customer1  is not null and customer1  <> '' then 1 else 0 end +
+        case when customer2  is not null and customer2  <> '' then 1 else 0 end +
+        case when customer3  is not null and customer3  <> '' then 1 else 0 end +
+        case when customer4  is not null and customer4  <> '' then 1 else 0 end +
+        case when customer5  is not null and customer5  <> '' then 1 else 0 end +
+        case when customer6  is not null and customer6  <> '' then 1 else 0 end +
+        case when customer7  is not null and customer7  <> '' then 1 else 0 end +
+        case when customer8  is not null and customer8  <> '' then 1 else 0 end +
+        case when customer9  is not null and customer9  <> '' then 1 else 0 end +
+        case when customer10 is not null and customer10 <> '' then 1 else 0 end +
+        case when customer11 is not null and customer11 <> '' then 1 else 0 end +
+        case when customer12 is not null and customer12 <> '' then 1 else 0 end +
+        case when customer13 is not null and customer13 <> '' then 1 else 0 end +
+        case when customer14 is not null and customer14 <> '' then 1 else 0 end +
+        case when customer15 is not null and customer15 <> '' then 1 else 0 end +
+        case when customer16 is not null and customer16 <> '' then 1 else 0 end +
+        case when customer17 is not null and customer17 <> '' then 1 else 0 end +
+        case when customer18 is not null and customer18 <> '' then 1 else 0 end +
+        case when customer19 is not null and customer19 <> '' then 1 else 0 end +
+        case when customer20 is not null and customer20 <> '' then 1 else 0 end +
+        case when customer21 is not null and customer21 <> '' then 1 else 0 end +
+        case when customer22 is not null and customer22 <> '' then 1 else 0 end +
+        case when customer23 is not null and customer23 <> '' then 1 else 0 end +
+        case when customer24 is not null and customer24 <> '' then 1 else 0 end
+    ) as soma_coletas,
+    round(avg(
+        case when customer1  is not null and customer1  <> '' then 1 else 0 end +
+        case when customer2  is not null and customer2  <> '' then 1 else 0 end +
+        case when customer3  is not null and customer3  <> '' then 1 else 0 end +
+        case when customer4  is not null and customer4  <> '' then 1 else 0 end +
+        case when customer5  is not null and customer5  <> '' then 1 else 0 end +
+        case when customer6  is not null and customer6  <> '' then 1 else 0 end +
+        case when customer7  is not null and customer7  <> '' then 1 else 0 end +
+        case when customer8  is not null and customer8  <> '' then 1 else 0 end +
+        case when customer9  is not null and customer9  <> '' then 1 else 0 end +
+        case when customer10 is not null and customer10 <> '' then 1 else 0 end +
+        case when customer11 is not null and customer11 <> '' then 1 else 0 end +
+        case when customer12 is not null and customer12 <> '' then 1 else 0 end +
+        case when customer13 is not null and customer13 <> '' then 1 else 0 end +
+        case when customer14 is not null and customer14 <> '' then 1 else 0 end +
+        case when customer15 is not null and customer15 <> '' then 1 else 0 end +
+        case when customer16 is not null and customer16 <> '' then 1 else 0 end +
+        case when customer17 is not null and customer17 <> '' then 1 else 0 end +
+        case when customer18 is not null and customer18 <> '' then 1 else 0 end +
+        case when customer19 is not null and customer19 <> '' then 1 else 0 end +
+        case when customer20 is not null and customer20 <> '' then 1 else 0 end +
+        case when customer21 is not null and customer21 <> '' then 1 else 0 end +
+        case when customer22 is not null and customer22 <> '' then 1 else 0 end +
+        case when customer23 is not null and customer23 <> '' then 1 else 0 end +
+        case when customer24 is not null and customer24 <> '' then 1 else 0 end
+    ), 0) as media_coletas
+  from "customersNew" cn
+  group by extract(year from cn.date), extract(dow from cn.date)
+  order by extract(year from cn.date), extract(dow from cn.date);
+
+
+2. Pegando a soma total e a porcentagem de coletas mensal comparada ao ano
+FOI CRIADA UMA VIEW COM NOME: customer_stats_mensal
+(ela devolve colunas: ano, mes, total_mensal, percentual_no_ano)
+  create or replace view customer_stats_mensal as
+  with meses as (
+    select generate_series(
+      date_trunc('year', min(date)),
+      date_trunc('year', max(date)) + interval '11 month',
+      interval '1 month'
+    )::date as mes_inicio
+    from "customersNew"
+  ),
+  coletas as (
+    select
+      date_trunc('month', cn.date) as mes_inicio,
+      extract(year from cn.date) as ano,
+      sum(
+        (case when customer1  is not null and customer1  <> '' then 1 else 0 end) +
+        (case when customer2  is not null and customer2  <> '' then 1 else 0 end) +
+        (case when customer3  is not null and customer3  <> '' then 1 else 0 end) +
+        (case when customer4  is not null and customer4  <> '' then 1 else 0 end) +
+        (case when customer5  is not null and customer5  <> '' then 1 else 0 end) +
+        (case when customer6  is not null and customer6  <> '' then 1 else 0 end) +
+        (case when customer7  is not null and customer7  <> '' then 1 else 0 end) +
+        (case when customer8  is not null and customer8  <> '' then 1 else 0 end) +
+        (case when customer9  is not null and customer9  <> '' then 1 else 0 end) +
+        (case when customer10 is not null and customer10 <> '' then 1 else 0 end) +
+        (case when customer11 is not null and customer11 <> '' then 1 else 0 end) +
+        (case when customer12 is not null and customer12 <> '' then 1 else 0 end) +
+        (case when customer13 is not null and customer13 <> '' then 1 else 0 end) +
+        (case when customer14 is not null and customer14 <> '' then 1 else 0 end) +
+        (case when customer15 is not null and customer15 <> '' then 1 else 0 end) +
+        (case when customer16 is not null and customer16  <> '' then 1 else 0 end) +
+        (case when customer17 is not null and customer17  <> '' then 1 else 0 end) +
+        (case when customer18 is not null and customer18  <> '' then 1 else 0 end) +
+        (case when customer19 is not null and customer19  <> '' then 1 else 0 end) +
+        (case when customer20 is not null and customer20  <> '' then 1 else 0 end) +
+        (case when customer21 is not null and customer21  <> '' then 1 else 0 end) +
+        (case when customer22 is not null and customer22  <> '' then 1 else 0 end) +
+        (case when customer23 is not null and customer23  <> '' then 1 else 0 end) +
+        (case when customer24 is not null and customer24  <> '' then 1 else 0 end)
+      ) as total_mensal
+    from "customersNew" cn
+    group by 1, 2
+  )
+  select
+    extract(year from m.mes_inicio) as ano,
+    case extract(month from m.mes_inicio)
+      when 1  then 'Jan'
+      when 2  then 'Fev'
+      when 3  then 'Mar'
+      when 4  then 'Abr'
+      when 5  then 'Mai'
+      when 6  then 'Jun'
+      when 7  then 'Jul'
+      when 8  then 'Ago'
+      when 9  then 'Set'
+      when 10 then 'Out'
+      when 11 then 'Nov'
+      when 12 then 'Dez'
+    end as mes,
+    coalesce(c.total_mensal, 0) as total_mensal,
+    round(
+      100.0 * coalesce(c.total_mensal, 0) / nullif(sum(coalesce(c.total_mensal, 0)) over (partition by extract(year from m.mes_inicio)),0),
+    1) as percentual_no_ano
+  from meses m
+  left join coletas c on c.mes_inicio = m.mes_inicio
+  order by m.mes_inicio;
+
+
+3. Pegando o total de dias que um veículo fica em manutenção:
+FOI CRIADA UMA VIEW COM NOME: manutencoes_por_placa
+(ela devolve colunas: ano, vehiclePlate, qtd_manutencoes)
+
+  create or replace view manutencoes_por_placa as
+  select 
+    extract(year from "date") as ano,
+    "vehiclePlate",
+    sum(
+      (case when "infoOne"   ILIKE 'manuten%' then 1 else 0 end) +
+      (case when "infoTwo"   ILIKE 'manuten%' then 1 else 0 end) +
+      (case when "infoThree" ILIKE 'manuten%' then 1 else 0 end) +
+      (case when "infoFour"  ILIKE 'manuten%' then 1 else 0 end) +
+      (case when "infoFive"  ILIKE 'manuten%' then 1 else 0 end)
+    ) as qtd_manutencoes
+  from "dataAll"
+  group by ano, "vehiclePlate"
+  order by ano, qtd_manutencoes desc;

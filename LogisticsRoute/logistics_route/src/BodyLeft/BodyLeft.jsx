@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { nValues } from "../dt";
-import { CustomersInfo } from "../App.jsx";
+import { CustomersInfo } from "../Body.jsx";
 
 function BodyLeft() {
   const [counting, setCounting] = useState(nValues);
