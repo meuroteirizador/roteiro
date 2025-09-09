@@ -122,27 +122,34 @@ function AnalyticsBI() {
             <BarChart
               data={maintenanceFiltrada}
               layout="vertical"
-              margin={{ top: 40, right: 15, left: 30, bottom: -20 }}
+              margin={{ top: 40, right: 20, left: 40, bottom: 0 }}
             >
               <CartesianGrid strokeDasharray="2 2" />
               <XAxis
                 type="number"
                 tick={{
                   fill: "black",
-                  fontSize: 13,
+                  fontSize: 14,
                   textAnchor: "end",
                 }}
               />
               <YAxis
                 type="category"
                 dataKey="vehiclePlate"
+                tickFormatter={(value) =>
+                  value.length > 10 ? value.slice(0, 8) : value
+                }
                 tick={{
                   fill: "black",
-                  fontSize: 10,
+                  fontSize: 14,
                   textAnchor: "end",
                 }}
               />
-              <Tooltip />
+              <Tooltip
+                contentStyle={{ fontSize: "16px" }}
+                itemStyle={{ fontSize: "16px" }}
+                labelStyle={{ fontSize: "16px", fontWeight: "bold" }}
+              />
               <Legend />
               <Bar dataKey="qtd_manutencoes" fill="#6279B8" />
             </BarChart>
@@ -150,7 +157,7 @@ function AnalyticsBI() {
         </div>
         <div className="graphs2">
           <div className="gra2">
-            <h2>{`% Coletas mensal - Ano ${year}`}</h2>
+            <h2>{`Qtd. coletas mensal - Ano ${year}`}</h2>
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 data={monthTotalAVG}
@@ -163,7 +170,7 @@ function AnalyticsBI() {
                   dataKey="mes"
                   tick={{
                     fill: "black",
-                    fontSize: 13,
+                    fontSize: 14,
                     textAnchor: "middle",
                     angle: "0",
                   }}
@@ -172,23 +179,27 @@ function AnalyticsBI() {
                   type="number"
                   tick={{
                     fill: "black",
-                    fontSize: 13,
+                    fontSize: 14,
                   }}
-                  tickFormatter={(value) => `${value}%`}
+                  // tickFormatter={(value) => `${value}%`}
                 />
-                <Tooltip formatter={(value) => `${value}%`} />
+                <Tooltip
+                  contentStyle={{ fontSize: "16px" }}
+                  itemStyle={{ fontSize: "16px" }}
+                  labelStyle={{ fontSize: "16px", fontWeight: "bold" }}
+                />
                 <Legend />
-                <Bar dataKey="percentual_no_ano" fill="#7B8DA3" />
+                <Bar dataKey="total_mensal" fill="#7B8DA3" />
               </BarChart>
             </ResponsiveContainer>
           </div>
           <div className="gra2">
-            <h2>{`Qtd. coletas por dia semana - Ano ${year}`}</h2>
+            <h2>{`% coletas semanal - Ano ${year}`}</h2>
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 data={dayTotalAVG}
                 layout="horizontal"
-                margin={{ top: 5, right: 20, left: 0, bottom: 10 }}
+                margin={{ top: 5, right: 20, left: 0, bottom: 0 }}
               >
                 <CartesianGrid strokeDasharray="2 2" />
                 <XAxis
@@ -196,7 +207,7 @@ function AnalyticsBI() {
                   dataKey="dia_semana"
                   tick={{
                     fill: "black",
-                    fontSize: 13,
+                    fontSize: 14,
                     textAnchor: "middle",
                     angle: "0",
                   }}
@@ -205,15 +216,21 @@ function AnalyticsBI() {
                   type="number"
                   tick={{
                     fill: "black",
-                    fontSize: 13,
+                    fontSize: 14,
                     textAlign: "center",
                     textWeight: 700,
                     textAnchor: "end",
                   }}
+                  tickFormatter={(value) => `${value}%`}
                 />
-                <Tooltip />
+                <Tooltip
+                  formatter={(value) => `${value}%`}
+                  contentStyle={{ fontSize: "16px" }}
+                  itemStyle={{ fontSize: "16px" }}
+                  labelStyle={{ fontSize: "16px", fontWeight: "bold" }}
+                />
                 <Legend />
-                <Bar dataKey="soma_coletas" fill="#2f143e" />
+                <Bar dataKey="percentual_coletas" fill="#2f143e" />
               </BarChart>
             </ResponsiveContainer>
           </div>

@@ -1,73 +1,100 @@
-1. Pegando a soma e a média de coletas por dia da semana
+1. Pegando a soma e a % de coletas por dia da semana
 FOI CRIADA UMA VIEW COM NOME: customer_stats 
 (ela devolve colunas: ano, dia_semana,soma_coletas, media_coletas)
   create or replace view customer_stats as
-  select
-    extract(year from cn.date) as ano,
-    case extract(dow from cn.date)
-      when 0 then 'Domingo'
-      when 1 then 'Segunda-feira'
-      when 2 then 'Terça-feira'
-      when 3 then 'Quarta-feira'
-      when 4 then 'Quinta-feira'
-      when 5 then 'Sexta-feira'
-      when 6 then 'Sábado'
-    end as dia_semana,
-    sum(
-        case when customer1  is not null and customer1  <> '' then 1 else 0 end +
-        case when customer2  is not null and customer2  <> '' then 1 else 0 end +
-        case when customer3  is not null and customer3  <> '' then 1 else 0 end +
-        case when customer4  is not null and customer4  <> '' then 1 else 0 end +
-        case when customer5  is not null and customer5  <> '' then 1 else 0 end +
-        case when customer6  is not null and customer6  <> '' then 1 else 0 end +
-        case when customer7  is not null and customer7  <> '' then 1 else 0 end +
-        case when customer8  is not null and customer8  <> '' then 1 else 0 end +
-        case when customer9  is not null and customer9  <> '' then 1 else 0 end +
-        case when customer10 is not null and customer10 <> '' then 1 else 0 end +
-        case when customer11 is not null and customer11 <> '' then 1 else 0 end +
-        case when customer12 is not null and customer12 <> '' then 1 else 0 end +
-        case when customer13 is not null and customer13 <> '' then 1 else 0 end +
-        case when customer14 is not null and customer14 <> '' then 1 else 0 end +
-        case when customer15 is not null and customer15 <> '' then 1 else 0 end +
-        case when customer16 is not null and customer16 <> '' then 1 else 0 end +
-        case when customer17 is not null and customer17 <> '' then 1 else 0 end +
-        case when customer18 is not null and customer18 <> '' then 1 else 0 end +
-        case when customer19 is not null and customer19 <> '' then 1 else 0 end +
-        case when customer20 is not null and customer20 <> '' then 1 else 0 end +
-        case when customer21 is not null and customer21 <> '' then 1 else 0 end +
-        case when customer22 is not null and customer22 <> '' then 1 else 0 end +
-        case when customer23 is not null and customer23 <> '' then 1 else 0 end +
-        case when customer24 is not null and customer24 <> '' then 1 else 0 end
-    ) as soma_coletas,
-    round(avg(
-        case when customer1  is not null and customer1  <> '' then 1 else 0 end +
-        case when customer2  is not null and customer2  <> '' then 1 else 0 end +
-        case when customer3  is not null and customer3  <> '' then 1 else 0 end +
-        case when customer4  is not null and customer4  <> '' then 1 else 0 end +
-        case when customer5  is not null and customer5  <> '' then 1 else 0 end +
-        case when customer6  is not null and customer6  <> '' then 1 else 0 end +
-        case when customer7  is not null and customer7  <> '' then 1 else 0 end +
-        case when customer8  is not null and customer8  <> '' then 1 else 0 end +
-        case when customer9  is not null and customer9  <> '' then 1 else 0 end +
-        case when customer10 is not null and customer10 <> '' then 1 else 0 end +
-        case when customer11 is not null and customer11 <> '' then 1 else 0 end +
-        case when customer12 is not null and customer12 <> '' then 1 else 0 end +
-        case when customer13 is not null and customer13 <> '' then 1 else 0 end +
-        case when customer14 is not null and customer14 <> '' then 1 else 0 end +
-        case when customer15 is not null and customer15 <> '' then 1 else 0 end +
-        case when customer16 is not null and customer16 <> '' then 1 else 0 end +
-        case when customer17 is not null and customer17 <> '' then 1 else 0 end +
-        case when customer18 is not null and customer18 <> '' then 1 else 0 end +
-        case when customer19 is not null and customer19 <> '' then 1 else 0 end +
-        case when customer20 is not null and customer20 <> '' then 1 else 0 end +
-        case when customer21 is not null and customer21 <> '' then 1 else 0 end +
-        case when customer22 is not null and customer22 <> '' then 1 else 0 end +
-        case when customer23 is not null and customer23 <> '' then 1 else 0 end +
-        case when customer24 is not null and customer24 <> '' then 1 else 0 end
-    ), 0) as media_coletas
-  from "customersNew" cn
-  group by extract(year from cn.date), extract(dow from cn.date)
-  order by extract(year from cn.date), extract(dow from cn.date);
+select
+  extract(year from cn.date) as ano,
+  case extract(dow from cn.date)
+    when 0 then 'Domingo'
+    when 1 then 'Segunda-feira'
+    when 2 then 'Terça-feira'
+    when 3 then 'Quarta-feira'
+    when 4 then 'Quinta-feira'
+    when 5 then 'Sexta-feira'
+    when 6 then 'Sábado'
+  end as dia_semana,
+  sum(
+      case when customer1  is not null and customer1  <> '' then 1 else 0 end +
+      case when customer2  is not null and customer2  <> '' then 1 else 0 end +
+      case when customer3  is not null and customer3  <> '' then 1 else 0 end +
+      case when customer4  is not null and customer4  <> '' then 1 else 0 end +
+      case when customer5  is not null and customer5  <> '' then 1 else 0 end +
+      case when customer6  is not null and customer6  <> '' then 1 else 0 end +
+      case when customer7  is not null and customer7  <> '' then 1 else 0 end +
+      case when customer8  is not null and customer8  <> '' then 1 else 0 end +
+      case when customer9  is not null and customer9  <> '' then 1 else 0 end +
+      case when customer10 is not null and customer10 <> '' then 1 else 0 end +
+      case when customer11 is not null and customer11 <> '' then 1 else 0 end +
+      case when customer12 is not null and customer12 <> '' then 1 else 0 end +
+      case when customer13 is not null and customer13 <> '' then 1 else 0 end +
+      case when customer14 is not null and customer14 <> '' then 1 else 0 end +
+      case when customer15 is not null and customer15 <> '' then 1 else 0 end +
+      case when customer16 is not null and customer16 <> '' then 1 else 0 end +
+      case when customer17 is not null and customer17 <> '' then 1 else 0 end +
+      case when customer18 is not null and customer18 <> '' then 1 else 0 end +
+      case when customer19 is not null and customer19 <> '' then 1 else 0 end +
+      case when customer20 is not null and customer20 <> '' then 1 else 0 end +
+      case when customer21 is not null and customer21 <> '' then 1 else 0 end +
+      case when customer22 is not null and customer22 <> '' then 1 else 0 end +
+      case when customer23 is not null and customer23 <> '' then 1 else 0 end +
+      case when customer24 is not null and customer24 <> '' then 1 else 0 end
+  ) as soma_coletas,
+  round(
+    100.0 * sum(
+      case when customer1  is not null and customer1  <> '' then 1 else 0 end +
+      case when customer2  is not null and customer2  <> '' then 1 else 0 end +
+      case when customer3  is not null and customer3  <> '' then 1 else 0 end +
+      case when customer4  is not null and customer4  <> '' then 1 else 0 end +
+      case when customer5  is not null and customer5  <> '' then 1 else 0 end +
+      case when customer6  is not null and customer6  <> '' then 1 else 0 end +
+      case when customer7  is not null and customer7  <> '' then 1 else 0 end +
+      case when customer8  is not null and customer8  <> '' then 1 else 0 end +
+      case when customer9  is not null and customer9  <> '' then 1 else 0 end +
+      case when customer10 is not null and customer10 <> '' then 1 else 0 end +
+      case when customer11 is not null and customer11 <> '' then 1 else 0 end +
+      case when customer12 is not null and customer12 <> '' then 1 else 0 end +
+      case when customer13 is not null and customer13 <> '' then 1 else 0 end +
+      case when customer14 is not null and customer14 <> '' then 1 else 0 end +
+      case when customer15 is not null and customer15 <> '' then 1 else 0 end +
+      case when customer16 is not null and customer16 <> '' then 1 else 0 end +
+      case when customer17 is not null and customer17 <> '' then 1 else 0 end +
+      case when customer18 is not null and customer18 <> '' then 1 else 0 end +
+      case when customer19 is not null and customer19 <> '' then 1 else 0 end +
+      case when customer20 is not null and customer20 <> '' then 1 else 0 end +
+      case when customer21 is not null and customer21 <> '' then 1 else 0 end +
+      case when customer22 is not null and customer22 <> '' then 1 else 0 end +
+      case when customer23 is not null and customer23 <> '' then 1 else 0 end +
+      case when customer24 is not null and customer24 <> '' then 1 else 0 end
+    ) / sum(sum(
+      case when customer1  is not null and customer1  <> '' then 1 else 0 end +
+      case when customer2  is not null and customer2  <> '' then 1 else 0 end +
+      case when customer3  is not null and customer3  <> '' then 1 else 0 end +
+      case when customer4  is not null and customer4  <> '' then 1 else 0 end +
+      case when customer5  is not null and customer5  <> '' then 1 else 0 end +
+      case when customer6  is not null and customer6  <> '' then 1 else 0 end +
+      case when customer7  is not null and customer7  <> '' then 1 else 0 end +
+      case when customer8  is not null and customer8  <> '' then 1 else 0 end +
+      case when customer9  is not null and customer9  <> '' then 1 else 0 end +
+      case when customer10 is not null and customer10 <> '' then 1 else 0 end +
+      case when customer11 is not null and customer11 <> '' then 1 else 0 end +
+      case when customer12 is not null and customer12 <> '' then 1 else 0 end +
+      case when customer13 is not null and customer13 <> '' then 1 else 0 end +
+      case when customer14 is not null and customer14 <> '' then 1 else 0 end +
+      case when customer15 is not null and customer15 <> '' then 1 else 0 end +
+      case when customer16 is not null and customer16  <> '' then 1 else 0 end +
+      case when customer17 is not null and customer17  <> '' then 1 else 0 end +
+      case when customer18 is not null and customer18  <> '' then 1 else 0 end +
+      case when customer19 is not null and customer19  <> '' then 1 else 0 end +
+      case when customer20 is not null and customer20  <> '' then 1 else 0 end +
+      case when customer21 is not null and customer21  <> '' then 1 else 0 end +
+      case when customer22 is not null and customer22  <> '' then 1 else 0 end +
+      case when customer23 is not null and customer23  <> '' then 1 else 0 end +
+      case when customer24 is not null and customer24  <> '' then 1 else 0 end
+    )) over (partition by extract(year from cn.date)), 2
+  ) as percentual_coletas
+from "customersNew" cn
+group by extract(year from cn.date), extract(dow from cn.date)
+order by extract(year from cn.date), extract(dow from cn.date);
 
 
 2. Pegando a soma total e a porcentagem de coletas mensal comparada ao ano

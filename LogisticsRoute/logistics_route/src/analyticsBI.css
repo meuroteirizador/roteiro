@@ -77,10 +77,10 @@
       padding: 1rem 0rem;
 
       & h2 {
-        font-size: 1rem;
+        font-size: 1.1rem;
         text-align: center;
         margin: 0rem 0rem -2rem 0rem;
-        padding: 0;
+        padding: 0rem 0rem 1rem 0rem;
       }
     }
   }
@@ -98,10 +98,10 @@
       padding: 1rem 0rem;
       height: calc(50dvh - 8.5rem);
       & h2 {
-        font-size: 1rem;
+        font-size: 1.1rem;
         text-align: center;
         margin: 0;
-        padding: 0;
+        padding: 0rem 0rem 1rem 0rem;
       }
     }
   }
