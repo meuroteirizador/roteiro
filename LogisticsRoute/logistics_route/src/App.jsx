@@ -9,7 +9,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="roteiro/" element={<Body />} />
-        <Route path="roteiro/analyticSBI" element={<AnalyticsBI />} />
+        <Route path="roteiro/analyticsbi" element={<AnalyticsBI />} />
       </Routes>
     </>
   );

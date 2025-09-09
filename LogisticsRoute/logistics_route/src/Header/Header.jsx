@@ -166,7 +166,7 @@ function Header() {
           </h1>
         </div>
         <div className="icons">
-          <Link to="/roteiro/analyticSBI">
+          <Link to="/roteiro/analyticsbi">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               // width="32"
