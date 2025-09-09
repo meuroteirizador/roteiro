@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import "./indexLess1400.css";
 import "./analyticsBI.css";
+import "../src/analyticsBILess1400.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 
