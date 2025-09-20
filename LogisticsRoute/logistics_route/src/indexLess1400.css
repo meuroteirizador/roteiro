@@ -68,7 +68,7 @@
 
 @media (max-width: 430px) {
   body {
-    overflow: hidden;
+    overflow: auto;
     & .password {
       height: 100dvh;
       width: 100dvw;
@@ -150,7 +150,7 @@
       grid-template-columns: 1fr;
       grid-template-rows: auto;
       margin-right: 0.5rem;
-      margin-left: -0.5rem;
+      margin-left: 0.5rem;
     }
   }
   & footer {
