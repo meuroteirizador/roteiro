@@ -228,6 +228,14 @@ function Body() {
     }, 1000);
   }
 
+  function hideOrShow() {
+    const psw = document.getElementById("pwd");
+    if (psw.type === "password") {
+      psw.type = "text";
+    } else {
+      psw.type = "password";
+    }
+  }
   async function selectDataAll() {
     const newDriverInfo = JSON.parse(JSON.stringify(driverAndVehicle));
 
@@ -280,6 +288,18 @@ function Body() {
     setDriverInfo(newDriverInfo);
   }
 
+  function checkPwd() {
+    const pwd = document.getElementById("pwd").value;
+
+    if (pwd != "roteiro.123") {
+      document.getElementsByClassName("errorPsw")[0].style.display = "flex";
+      console.log("senha incorreta, verifique e tente novamente!");
+    } else {
+      document.getElementsByClassName("password")[0].style.display = "none";
+      addCustomer();
+    }
+  }
+
   return (
     <CustomersInfo.Provider
       value={{
@@ -296,6 +316,38 @@ function Body() {
         setDriverInfo,
       }}
     >
+      <div className="password">
+        <div className="innerElements">
+          <div className="inputs">
+            <input
+              type="password"
+              id="pwd"
+              name="pwd"
+              placeholder="Digite a senha"
+            />
+            <input
+              className="checkbox"
+              type="checkbox"
+              onClick={() => hideOrShow()}
+            />
+          </div>
+          <div className="btts">
+            <button
+              onClick={() =>
+                (document.getElementsByClassName("password")[0].style.display =
+                  "none")
+              }
+            >
+              Cancelar
+            </button>
+            <button class="bttPassword" onClick={() => checkPwd()}>
+              Enviar
+            </button>
+          </div>
+          <p className="errorPsw">Senha incorreta</p>
+        </div>
+      </div>
+
       <div className="dts">
         <input
           type="date"
@@ -307,7 +359,13 @@ function Body() {
           }}
         />
         <div className="buttons">
-          <button id="insertData" onClick={addCustomer}>
+          <button
+            id="insertData"
+            /*onClick={addCustomer}*/ onClick={() =>
+              (document.getElementsByClassName("password")[0].style.display =
+                "flex")
+            }
+          >
             Cadastrar
           </button>
           <button id="selectData" onClick={selectCustomer}>
