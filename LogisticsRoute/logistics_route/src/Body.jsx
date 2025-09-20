@@ -333,10 +333,15 @@ function Body() {
           </div>
           <div className="btts">
             <button
-              onClick={() =>
+              onClick={() => {
                 (document.getElementsByClassName("password")[0].style.display =
-                  "none")
-              }
+                  "none"),
+                  (document.body.style.overflow = "auto"),
+                  (document.getElementById("pwd").value = ""),
+                  (document.getElementsByClassName(
+                    "errorPsw"
+                  )[0].style.display = "none");
+              }}
             >
               Cancelar
             </button>
@@ -361,10 +366,11 @@ function Body() {
         <div className="buttons">
           <button
             id="insertData"
-            /*onClick={addCustomer}*/ onClick={() =>
+            /*onClick={addCustomer}*/ onClick={() => {
               (document.getElementsByClassName("password")[0].style.display =
-                "flex")
-            }
+                "flex"),
+                (document.body.style.overflow = "hidden");
+            }}
           >
             Cadastrar
           </button>

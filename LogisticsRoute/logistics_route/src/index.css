@@ -11,6 +11,8 @@ body {
   margin: 0;
   position: relative;
   display: flex;
+  overflow-x: auto;
+  overflow-y: auto;
 
   & .password {
     display: none;
@@ -24,7 +26,7 @@ body {
     backdrop-filter: blur(5px);
 
     & .innerElements {
-      margin: 40%;
+      margin: 5% 40%;
       height: fit-content;
       display: flex;
       position: relative;
@@ -380,7 +382,9 @@ footer {
   font-weight: 700;
   font-size: 0.6rem;
   margin-top: 3rem;
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
+  text-align: center;
+  width: 100dvw;
   & a {
     text-decoration: none;
     color: #2f143e;
